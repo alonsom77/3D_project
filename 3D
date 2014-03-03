@@ -1,0 +1,101 @@
+def makeRed(picture):
+  for px in getPixels(picture): #gets all the pixels in theimage
+    r=getRed(px)
+    g=getGreen(px)
+    b=getBlue(px)
+    redColor=makeColor(r, 0 - g, 0 - b) 
+    setColor(px, redColor)
+  repaint(picture)
+  
+def makeCyan(picture):
+  for px in getPixels(picture): #gets all the pixels in theimage
+    r=getRed(px)
+    g=getGreen(px)
+    b=getBlue(px)
+    cyanColor=makeColor(0 - r, g, b) 
+    setColor(px, cyanColor)
+  repaint(picture)
+
+
+
+
+def blend(pic1, pic2):
+
+  # Assumes the pictures are the smae size
+  width , height = getWidth(pic1), getHeight(pic1)
+
+  blendPic = makeEmptyPicture(width, height)
+
+  for x in xrange(width):
+    for y in xrange(height):
+      
+      targetPixel = getPixel(blurPic, x, y)
+
+      px1 = getPixel(pic1, x, y)
+      px2 = getPixel(pic2, x, y)
+
+      r1, g1, b1 = getRed(px1), getGreen(px1), getBlue(px1)
+      r2, g2, b2 = getRed(px2), getGreen(px2), getBlue(px2)
+
+      blurColor = makeColor( (r1+r2)/2 , (g1+g2)/2, (b1+b2)/2 )
+
+      setColor(targetPixel, blurColor)
+
+  return blendPic
+
+
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
