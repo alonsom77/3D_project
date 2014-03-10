@@ -1,0 +1,18 @@
+sound = pickAFile()
+sound = makeSound(sound)
+
+# Increases the volume of the first half and decreases the second half.
+# For some reason it does not work if both for loops are in the same function as increaseAndDecrease.
+def increaseVolume(sound):
+ for sampleIndex in range(1,getLength(sound)/2):
+   value = getSampleValueAt(sound,sampleIndex)
+   setSampleValueAt(sound,sampleIndex,value * 2)
+increaseVolume(sound)
+
+def decreaseVolume(sound):
+ for sampleIndex in range(getLength(sound)/2,getLength(sound)): 
+      value = getSampleValueAt(sound,sampleIndex)
+      setSampleValueAt(sound,sampleIndex,value * 0.2)
+decreaseVolume(sound)
+
+play(sound)
